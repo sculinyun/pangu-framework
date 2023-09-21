@@ -1,0 +1,2 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  cn.com.hbscjt.app.framework.banner.config.BannerAutoConfiguration

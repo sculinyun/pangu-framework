@@ -1,0 +1,5 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  cn.com.hbscjt.app.framework.web.config.WebAutoConfiguration,\
+  cn.com.hbscjt.app.framework.web.config.WebJacksonAutoConfiguration
+
+

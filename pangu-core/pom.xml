@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>pangu-framework</artifactId>
+        <groupId>cn.com.hbscjt</groupId>
+        <version>${revision}</version>
+    </parent>
+
+    <modelVersion>4.0.0</modelVersion>
+    <packaging>pom</packaging>
+    <artifactId>pangu-core</artifactId>
+
+    <name>${project.artifactId}</name>
+    <description>
+        该包是技术组件，每个子包，代表一个组件。每个组件包括两部分：
+        1. core 包：是该组件的核心封装
+        2. config 包：是该组件基于 Spring 的配置
+
+        技术组件，也分成两类：
+        1. 框架组件：和我们熟悉的 MyBatis、Redis 等等的拓展
+        2. 业务组件：和业务相关的组件的封装，例如说数据字典、操作日志等等。
+        如果是业务组件，Maven 名字会包含 biz
+    </description>
+
+    <modules>
+        <module>hbcsjt-app-common</module>
+        <module>hbcsjt-app-spring-boot-starter-banner</module>
+        <module>hbcsjt-app-spring-boot-starter-cloud</module>
+        <module>hbcsjt-app-spring-boot-starter-web</module>
+        <module>hbcsjt-app-spring-boot-starter-boot</module>
+        <module>hbcsjt-app-spring-boot-starter-mybatis</module>
+        <module>hbcsjt-app-spring-boot-starter-auth</module>
+        <module>hbcsjt-app-spring-boot-starter-redis</module>
+        <module>hbcsjt-app-spring-boot-starter-security</module>
+        <module>hbcsjt-app-spring-boot-starter-muticache</module>
+        <module>hbcsjt-app-spring-boot-starter-swagger</module>
+    </modules>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>flatten-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

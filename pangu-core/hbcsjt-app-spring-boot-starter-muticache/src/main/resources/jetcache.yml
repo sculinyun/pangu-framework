@@ -1,0 +1,22 @@
+jetcache:
+  statIntervalMinutes: 15
+  areaInCacheName: false
+  local:
+    #默认area
+    default:
+      type: caffeine
+      keyConvertor: jackson
+      limit: 10000
+  remote:
+    default:
+      keyPrefix: super_ # 全局key前缀
+      type: redis.lettuce
+      keyConvertor: jackson
+      valueEncoder: java
+      valueDecoder: java
+      uri: ${boot.web.muticache.uri}
+      poolConfig:
+        minIdle: 5
+        maxIdle: 50
+        maxTotal: 1000
+        maxWait: 1000

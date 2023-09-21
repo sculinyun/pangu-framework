@@ -1,0 +1,5 @@
+cn\com\hbscjt\app\framework\auth\core\aspect\LoginAspect.class
+cn\com\hbscjt\app\framework\auth\core\annotation\PreAuth.class
+cn\com\hbscjt\app\framework\auth\core\annotation\Login.class
+cn\com\hbscjt\app\framework\auth\config\AuthConfiguration.class
+cn\com\hbscjt\app\framework\auth\core\props\AuthProperties.class

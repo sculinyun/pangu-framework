@@ -1,0 +1,67 @@
+#自身boot配置
+boot:
+  core:
+    env: dev
+  web:
+    redis:
+      enable: true
+    swagger:
+      enable: true
+      title: 接口文档系统
+      description: 自研接口文档系统
+      version: 1.0.0
+      base-package: cn.com.hbscjt.**
+  mybatis:
+    info:
+      sql: true
+      basePackage: cn.com.hbscjt.**
+#spring配置
+spring:
+  application:
+    name: ${boot.core.appName}
+  autoconfigure:
+    exclude: org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
+  servlet:
+    multipart:
+      max-file-size: 256MB
+      max-request-size: 1024MB
+  web:
+    resources:
+      add-mappings: false
+  mvc:
+    throw-exception-if-no-handler-found: true
+  redis:
+    host: ${boot.web.redis.host}
+    port: ${boot.web.redis.port}
+    database: ${boot.web.redis.database}
+    lettuce:
+      pool:
+        max-active: 20
+        max-idle: 8
+        max-wait: 5s
+        min-idle: 0
+        time-between-eviction-runs: 1s
+#tomcat配置
+server:
+  port: ${boot.core.port}
+#配置日志地址
+logging:
+  config: classpath:log/logback_${boot.core.env}.xml
+
+# mybatis配置
+mybatis-plus:
+  mapper-locations: classpath:cn/com/hbcsjt/**/mapper/*Mapper.xml
+  typeAliasesPackage: ${boot.mybatis.info.base-package}.dal.dataobject
+  global-config:
+    banner: false
+    db-config:
+      id-type: 0
+      insert-strategy: not_null
+      update-strategy: not_null
+      select-strategy: not_null
+      table-underline: true
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+  configuration:
+    map-underscore-to-camel-case: true
+    cache-enabled: false

@@ -1,0 +1,76 @@
+spring:
+  datasource:
+    dynamic:
+      primary: master #设置默认的数据源或者数据源组,默认值即为master
+      strict: false #严格匹配数据源,默认false. true未匹配到指定数据源时抛异常,false使用默认数据源
+      datasource:
+        master:
+          url: ${boot.mybatis.datasource.master.url}
+          username: ${boot.mybatis.datasource.master.username}
+          password: ${boot.mybatis.datasource.master.password}
+          driver-class-name: ${boot.mybatis.datasource.master.driverClassName}
+        slave:
+          url: ${boot.mybatis.datasource.slave.url}
+          username: ${boot.mybatis.datasource.slave.username}
+          password: ${boot.mybatis.datasource.slave.password}
+          driver-class-name: ${boot.mybatis.datasource.slave.driverClassName}
+    druid:
+      # 连接池配置
+      # 配置初始化大小、最小、最大
+      initial-size: 5
+      max-active: 200
+      min-idle: 5
+      # 连接超时时间
+      max-wait: 6000
+      # 间隔多久进行一次检测，检测需要关闭的空闲连接，单位是毫秒
+      time-between-eviction-runs-millis: 60000
+      # 一个连接在连接池中最小的生存时间，单位是毫秒
+      min-evictable-idle-time-millis: 120000
+      # 用来检测连接是否有效的sql，要求是一个查询语句。 如果validationQuery为null，testOnBorrow、testOnReturn、 testWhileIdle都不会其作用。
+      validation-query: SELECT 1
+      # 当从连接池借用连接时，是否测试该连接
+      test-on-borrow: false
+      # 在连接归还到连接池时是否测试该连接
+      test-on-return: false
+      # 当连接空闲时，是否执行连接测试
+      test-while-idle: true
+      # 合并多个DruidDataSource的监控数据
+      use-global-data-source-stat: true
+      # 配置监控统计拦截的filters，去掉后监控界面sql无法统计，'wall'用于防火墙
+      filter:
+        # 慢SQL记录(sql语句执行时间超过某个界限就记录下来)
+        stat:
+          log-slow-sql: true
+          slow-sql-millis: 2000
+      #        wall:
+      #          config:
+      #            none-base-statement-allow: true
+      #            multi-statement-allow: true
+      # 本来有防火墙的过滤器的，但批量更新总是过不去，就去掉了，加防火墙怎么实现批量更新？还没解决
+      filters: stat
+      #  监控配置
+      # WebStatFilter配置
+      web-stat-filter:
+        # 是否开启web-jdbc监控 默认是false
+        enabled: true
+        # 是否开启单个监控url调用的sql列表 默认开启
+        profile-enable: true
+        url-pattern: /*
+        exclusions: /druid/*,*.gif,*.png,*.jpg,*.html,*.js,*.css,*.ico
+        #是否开启session统计 默认false
+        session-stat-enable: true
+        # 设置session统计的最大值 默认是1000
+        session-stat-max-count: 1000
+
+      # StatViewServlet配置
+      stat-view-servlet:
+        # 是否开启druid的数据统计界面 默认false
+        enabled: true
+        url-pattern: /druid/*
+        #  登录监控界面的用户名以及密码，登录url为 IP:port/druid
+        login-username: ${boot.mybatis.datasource.druidName}
+        login-password: ${boot.mybatis.datasource.druidPwd}
+        allow: ${boot.mybatis.datasource.allow}
+        deny:
+        #  HTML页面上的“Reset All”功能
+        reset-enable: false
