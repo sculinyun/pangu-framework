@@ -13,7 +13,7 @@ import org.apache.ibatis.type.JdbcType;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2023-09-22T09:34:55+0800",
+    date = "2023-09-22T10:43:52+0800",
     comments = "version: 1.4.1.Final, compiler: javac, environment: Java 1.8.0_291 (Oracle Corporation)"
 )
 public class CodegenConvertImpl implements CodegenConvert {

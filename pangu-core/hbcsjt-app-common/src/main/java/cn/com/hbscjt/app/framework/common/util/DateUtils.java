@@ -173,14 +173,14 @@ public class DateUtils {
         return -1;
     }
 
-    public static void main(String[] args) throws ParseException {
-        String dateStr = "2022-11-10";
-        SimpleDateFormat df = new SimpleDateFormat(FULL_DATE);
-        Date startDate = df.parse(dateStr);
-        System.out.println(afterNow(startDate));
-        // System.out.println(beforeAfterNow("2022-11-09", "2022-11-09"));
-        System.out.println(getDayOfMonth("2023-02"));
-    }
+//    public static void main(String[] args) throws ParseException {
+//        String dateStr = "2022-11-10";
+//        SimpleDateFormat df = new SimpleDateFormat(FULL_DATE);
+//        Date startDate = df.parse(dateStr);
+//        System.out.println(afterNow(startDate));
+//        // System.out.println(beforeAfterNow("2022-11-09", "2022-11-09"));
+//        System.out.println(getDayOfMonth("2023-02"));
+//    }
 
     /**
      * 计算当期时间相差的日期

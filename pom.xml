@@ -26,6 +26,7 @@
         <maven-surefire-plugin.version>3.0.0-M5</maven-surefire-plugin.version>
         <maven-compiler-plugin.version>3.8.0</maven-compiler-plugin.version>
         <flatten-maven-plugin.version>1.5.0</flatten-maven-plugin.version>
+        <maven-boot-plugin.version>2.6.9</maven-boot-plugin.version>
         <!-- 看看咋放到 bom 里 -->
         <lombok.version>1.18.20</lombok.version>
         <mapstruct.version>1.4.1.Final</mapstruct.version>
@@ -98,6 +99,12 @@
                             </goals>
                         </execution>
                     </executions>
+                </plugin>
+                <!-- 打包 -->
+                <plugin>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-maven-plugin</artifactId>
+                    <version>${maven-boot-plugin.version}</version> <!-- 如果 spring.boot.version 版本修改，则这里也要跟着修改 -->
                 </plugin>
             </plugins>
         </pluginManagement>

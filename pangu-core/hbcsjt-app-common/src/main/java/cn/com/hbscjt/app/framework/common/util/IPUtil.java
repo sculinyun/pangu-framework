@@ -36,7 +36,7 @@ public class IPUtil {
 		return node.get("addr").toString();
 	}
 
-	public static void main(String[] args) {
-		System.err.println(getCityInfo("220.248.12.158"));
-	}
+//	public static void main(String[] args) {
+//		System.err.println(getCityInfo("220.248.12.158"));
+//	}
 }
