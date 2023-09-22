@@ -19,6 +19,7 @@
         <module name="hbcsjt-app-spring-boot-starter-web" />
         <module name="hbcsjt-app-spring-boot-starter-boot" />
         <module name="hbcsjt-app-spring-boot-starter-cloud" />
+        <module name="hbcsjt-app-spring-boot-starter-develop" />
         <module name="hbcsjt-app-spring-boot-starter-security" />
         <module name="hbcsjt-app-spring-boot-starter-auth" />
         <module name="hbcsjt-app-common" />
