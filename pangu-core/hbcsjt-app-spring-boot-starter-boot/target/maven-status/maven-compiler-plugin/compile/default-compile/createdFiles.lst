@@ -1,8 +1,0 @@
-cn\com\hbscjt\app\framework\boot\core\constant\BootConstant.class
-cn\com\hbscjt\app\framework\boot\core\client\BootApplication.class
-cn\com\hbscjt\app\framework\boot\core\props\BootCoreProperties.class
-cn\com\hbscjt\app\framework\boot\core\props\BootAsyncProperties.class
-cn\com\hbscjt\app\framework\boot\config\BootMvcConfiguration.class
-cn\com\hbscjt\app\framework\boot\config\BootAutoConfiguration.class
-cn\com\hbscjt\app\framework\boot\config\BootExecutorConfiguration.class
-cn\com\hbscjt\app\framework\boot\core\resolver\TokenArgumentResolver.class
