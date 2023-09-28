@@ -8,11 +8,7 @@ import cn.com.hbscjt.app.framework.security.core.handler.AuthenticationEntryPoin
 import cn.com.hbscjt.app.framework.security.core.props.SecurityProperties;
 import cn.com.hbscjt.app.framework.security.core.service.SecurityFrameworkService;
 import cn.com.hbscjt.app.framework.security.core.service.SecurityFrameworkServiceImpl;
-import cn.com.hbscjt.app.framework.web.core.handler.GlobalExceptionHandler;
-import cn.com.hbscjt.app.module.member.api.oauth2.OAuth2TokenApi;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.beans.factory.config.MethodInvokingFactoryBean;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.ApplicationContext;
@@ -31,8 +27,6 @@ public class SecurityAutoConfiguration {
 
     @Resource
     private SecurityProperties securityProperties;
-    @Resource
-    private OAuth2TokenApi oAuth2TokenApi;
 
     /**
      * 处理用户未登录拦截的切面的 Bean
@@ -62,9 +56,8 @@ public class SecurityAutoConfiguration {
      * Token 认证过滤器 Bean
      */
     @Bean
-    @ConditionalOnBean(GlobalExceptionHandler.class)
-    public TokenAuthenticationFilter authenticationTokenFilter(GlobalExceptionHandler globalExceptionHandler) {
-        return new TokenAuthenticationFilter(securityProperties, globalExceptionHandler, oAuth2TokenApi);
+    public TokenAuthenticationFilter authenticationTokenFilter() {
+        return new TokenAuthenticationFilter();
     }
 
     @Bean("ss")

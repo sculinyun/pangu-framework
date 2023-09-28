@@ -38,12 +38,6 @@
       <scope>compile</scope>
     </dependency>
     <dependency>
-      <groupId>cn.com.hbscjt</groupId>
-      <artifactId>member-user-api</artifactId>
-      <version>1.0.0-SNAPSHOT</version>
-      <scope>compile</scope>
-    </dependency>
-    <dependency>
       <groupId>io.github.openfeign</groupId>
       <artifactId>feign-core</artifactId>
       <version>11.8</version>

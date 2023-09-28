@@ -33,11 +33,6 @@
             <artifactId>spring-boot-starter-aop</artifactId>
         </dependency>
         <dependency>
-            <groupId>cn.com.hbscjt</groupId>
-            <artifactId>member-user-api</artifactId>
-            <version>${revision}</version>
-        </dependency>
-        <dependency>
             <groupId>io.github.openfeign</groupId>
             <artifactId>feign-core</artifactId>
         </dependency>
