@@ -32,5 +32,9 @@
             <groupId>cn.com.hbscjt</groupId>
             <artifactId>hbcsjt-app-spring-boot-starter-muticache</artifactId>
         </dependency>
+        <dependency>
+            <groupId>cn.com.hbscjt</groupId>
+            <artifactId>hbcsjt-app-spring-boot-starter-sms</artifactId>
+        </dependency>
     </dependencies>
 </project>

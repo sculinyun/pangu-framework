@@ -181,6 +181,11 @@
                 <artifactId>hbcsjt-app-spring-boot-starter-develop</artifactId>
                 <version>${revision}</version>
             </dependency>
+            <dependency>
+                <groupId>cn.com.hbscjt</groupId>
+                <artifactId>hbcsjt-app-spring-boot-starter-sms</artifactId>
+                <version>${revision}</version>
+            </dependency>
             <!-- Spring 核心 -->
             <dependency>
                 <!-- 用于生成自定义的 Spring @ConfigurationProperties 配置类的说明文件 -->

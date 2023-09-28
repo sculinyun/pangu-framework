@@ -1,5 +1,6 @@
 package cn.com.hbscjt.app.framework.mybatis.core.handler;
 
+import cn.com.hbscjt.app.framework.common.entity.LoginUser;
 import cn.com.hbscjt.app.framework.mybatis.core.base.BaseDO;
 import cn.com.hbscjt.app.framework.web.core.util.WebFrameworkUtils;
 import com.baomidou.mybatisplus.core.handlers.MetaObjectHandler;
@@ -51,9 +52,9 @@ public class DefaultDBFieldHandler implements MetaObjectHandler {
         }
         // 当前登录用户不为空，更新人为空，则当前登录用户为更新人
         Object modifier = getFieldValByName("updater", metaObject);
-        Long userId = WebFrameworkUtils.getLoginUserId();
-        if (Objects.nonNull(userId) && Objects.isNull(modifier)) {
-            setFieldValByName("updater", userId.toString(), metaObject);
+        LoginUser loginUser = WebFrameworkUtils.getLoginUser();
+        if (Objects.nonNull(loginUser) && Objects.isNull(modifier)) {
+            setFieldValByName("updater", loginUser.getUserId(), metaObject);
         }
     }
 }

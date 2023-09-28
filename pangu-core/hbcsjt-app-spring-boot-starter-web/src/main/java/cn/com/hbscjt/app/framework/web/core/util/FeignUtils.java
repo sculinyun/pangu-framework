@@ -13,8 +13,6 @@ import java.util.Map;
 
 /**
  * {@link feign.Feign} 工具类
- *
- * @author 芋道源码
  */
 public class FeignUtils {
 

@@ -10,8 +10,9 @@ import cn.com.hbscjt.app.framework.security.core.service.SecurityFrameworkServic
 import cn.com.hbscjt.app.framework.security.core.service.SecurityFrameworkServiceImpl;
 import cn.com.hbscjt.app.framework.web.core.handler.GlobalExceptionHandler;
 import cn.com.hbscjt.app.module.member.api.oauth2.OAuth2TokenApi;
-import cn.com.hbscjt.app.module.member.api.permission.PermissionApi;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.beans.factory.config.MethodInvokingFactoryBean;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.ApplicationContext;
@@ -30,8 +31,6 @@ public class SecurityAutoConfiguration {
 
     @Resource
     private SecurityProperties securityProperties;
-    @Resource
-    private PermissionApi permissionApi;
     @Resource
     private OAuth2TokenApi oAuth2TokenApi;
 
@@ -63,14 +62,14 @@ public class SecurityAutoConfiguration {
      * Token 认证过滤器 Bean
      */
     @Bean
-    @ConditionalOnProperty
+    @ConditionalOnBean(GlobalExceptionHandler.class)
     public TokenAuthenticationFilter authenticationTokenFilter(GlobalExceptionHandler globalExceptionHandler) {
         return new TokenAuthenticationFilter(securityProperties, globalExceptionHandler, oAuth2TokenApi);
     }
 
     @Bean("ss")
-    public SecurityFrameworkService securityFrameworkService() {
-        return new SecurityFrameworkServiceImpl(permissionApi);
+    public SecurityFrameworkService securityFrameworkService(SecurityProperties securityProperties) {
+        return new SecurityFrameworkServiceImpl(securityProperties);
     }
 
     /**

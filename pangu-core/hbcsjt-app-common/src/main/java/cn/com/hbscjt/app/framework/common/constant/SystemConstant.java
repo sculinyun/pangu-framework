@@ -25,4 +25,7 @@ public interface SystemConstant {
     //删除状态[0:正常,1:删除]
     Boolean DB_NOT_DELETED = false;
     Boolean DB_IS_DELETED = true;
+
+    String CONTENT_TYPE_NAME = "Content-type";
+    String CONTENT_TYPE = "application/json;charset=utf-8";
 }

@@ -2,7 +2,6 @@ package cn.com.hbscjt.app.framework.mybatis.config;
 
 import cn.com.hbscjt.app.framework.mybatis.core.filter.DruidAdRemoveFilter;
 import cn.com.hbscjt.app.framework.mybatis.core.props.DatasourceProperties;
-import com.alibaba.druid.pool.DruidDataSource;
 import com.alibaba.druid.spring.boot.autoconfigure.properties.DruidStatProperties;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.ibatis.annotations.Mapper;
@@ -12,8 +11,6 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-
-import javax.sql.DataSource;
 
 /**
  * master Datasource 配置类

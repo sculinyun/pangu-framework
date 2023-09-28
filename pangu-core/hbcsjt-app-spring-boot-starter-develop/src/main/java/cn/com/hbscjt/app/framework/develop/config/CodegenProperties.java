@@ -7,7 +7,7 @@ import org.springframework.validation.annotation.Validated;
 
 import javax.validation.constraints.NotNull;
 
-@ConfigurationProperties(prefix = "develop.codegen")
+@ConfigurationProperties(prefix = "boot.develop.codegen")
 @Validated
 @Data
 public class CodegenProperties {

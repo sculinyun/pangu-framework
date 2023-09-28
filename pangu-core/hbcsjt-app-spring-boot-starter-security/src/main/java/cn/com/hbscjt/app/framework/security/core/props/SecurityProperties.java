@@ -31,4 +31,10 @@ public class SecurityProperties {
      * 免登录的 URL 列表
      */
     private List<String> permitAllUrls = Collections.emptyList();
+
+    /**
+     * 权限接口URL
+     */
+    @NotEmpty(message = "权限接口不能为空")
+    private String permissionApiUrl;
 }

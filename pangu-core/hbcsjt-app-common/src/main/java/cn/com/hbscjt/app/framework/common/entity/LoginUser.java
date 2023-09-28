@@ -1,7 +1,6 @@
 package cn.com.hbscjt.app.framework.common.entity;
 
 import lombok.Data;
-import lombok.RequiredArgsConstructor;
 
 import java.io.Serializable;
 import java.util.List;
@@ -10,7 +9,6 @@ import java.util.List;
  * 登录用户对象
  */
 @Data
-@RequiredArgsConstructor
 public class LoginUser implements Serializable {
 
 	private static final long serialVersionUID = 1L;

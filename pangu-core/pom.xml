@@ -37,6 +37,7 @@
         <module>hbcsjt-app-spring-boot-starter-muticache</module>
         <module>hbcsjt-app-spring-boot-starter-swagger</module>
         <module>hbcsjt-app-spring-boot-starter-develop</module>
+        <module>hbcsjt-app-spring-boot-starter-sms</module>
     </modules>
 
     <build>
