@@ -16,11 +16,7 @@ import javax.validation.constraints.NotNull;
 public class WebProperties {
 
     @NotNull(message = "APP API 不能为空")
-    private Api appApi = new Api("/app-api", "**.controller.app.**");
-    @NotNull(message = "Admin API 不能为空")
-    private Api adminApi = new Api("/admin-api", "**.controller.admin.**");
-    @NotNull(message = "Develop API 不能为空")
-    private Api developerApi = new Api("/developer-api", "**.controller.developer.**");
+    private Api api = new Api("/app-api", "**.controller.app.**");
 
     @Data
     @AllArgsConstructor
@@ -40,7 +36,6 @@ public class WebProperties {
          */
         @NotEmpty(message = "Controller 所在包不能为空")
         private String controller;
-
     }
 
 }

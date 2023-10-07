@@ -1,7 +1,6 @@
 package cn.com.hbscjt.app.framework.web.core.util;
 
 import cn.com.hbscjt.app.framework.common.entity.LoginUser;
-import cn.com.hbscjt.app.framework.common.enums.UserTypeEnum;
 import cn.com.hbscjt.app.framework.web.core.props.WebProperties;
 import cn.hutool.core.util.StrUtil;
 import org.springframework.web.context.request.RequestAttributes;
@@ -86,16 +85,6 @@ public class WebFrameworkUtils {
         Integer userType = (Integer) request.getAttribute(REQUEST_ATTRIBUTE_LOGIN_USER_TYPE);
         if (userType != null) {
             return userType;
-        }
-        // 2. 其次，基于 URL 前缀的约定
-        if (request.getRequestURI().startsWith(properties.getAdminApi().getPrefix())) {
-            return UserTypeEnum.ADMIN.getValue();
-        }
-        if (request.getRequestURI().startsWith(properties.getAppApi().getPrefix())) {
-            return UserTypeEnum.MEMBER.getValue();
-        }
-        if (request.getRequestURI().startsWith(properties.getDeveloperApi().getPrefix())) {
-            return UserTypeEnum.MEMBER.getValue();
         }
         return null;
     }

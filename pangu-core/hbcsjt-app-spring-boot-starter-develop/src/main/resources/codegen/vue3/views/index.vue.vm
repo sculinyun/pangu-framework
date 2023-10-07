@@ -1,0 +1,16 @@
+<script setup lang="ts">
+import { rules, allSchemas, api } from './${simpleClassName.substring(0, 1).toLowerCase()}${simpleClassName.substring(1)}.data'
+import TableList from '@/components/TableList/src/TableList.vue'
+import { ref } from 'vue'
+const headerButtons = ref<any[]>(['add', 'export'])
+const tableButtons = ref<any[]>(['edit', 'detail', 'del'])
+</script>
+<template>
+  <TableList
+    :api="api"
+    :rules="rules"
+    :allSchemas="allSchemas"
+    :headerButtons="headerButtons"
+    :tableButtons="tableButtons"
+  />
+</template>

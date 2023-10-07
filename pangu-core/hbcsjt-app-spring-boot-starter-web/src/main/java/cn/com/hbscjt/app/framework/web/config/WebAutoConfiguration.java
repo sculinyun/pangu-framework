@@ -5,6 +5,7 @@ import cn.com.hbscjt.app.framework.web.core.convert.MvcDateConvert;
 import cn.com.hbscjt.app.framework.web.core.handler.GlobalExceptionHandler;
 import cn.com.hbscjt.app.framework.web.core.props.RsaProperties;
 import cn.com.hbscjt.app.framework.web.core.props.WebProperties;
+import cn.com.hbscjt.app.framework.web.core.props.XssProperties;
 import cn.com.hbscjt.app.framework.web.core.util.TokenUtil;
 import cn.com.hbscjt.app.framework.web.core.util.WebFrameworkUtils;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
@@ -21,7 +22,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
  **/
 @Configuration
 @ConditionalOnWebApplication(type = ConditionalOnWebApplication.Type.SERVLET)
-@EnableConfigurationProperties({RsaProperties.class, WebProperties.class})
+@EnableConfigurationProperties({RsaProperties.class, WebProperties.class, XssProperties.class})
 public class WebAutoConfiguration implements WebMvcConfigurer {
 
     @Bean
