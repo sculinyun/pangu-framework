@@ -35,6 +35,6 @@ public class SecurityProperties {
     /**
      * 权限接口URL
      */
-    @NotEmpty(message = "权限接口不能为空")
-    private String permissionApiUrl;
+    @NotEmpty(message = "权限接口Url不能为空")
+    private String permissionApiUrl="http://scjt";
 }

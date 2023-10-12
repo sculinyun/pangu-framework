@@ -1,5 +1,6 @@
 package cn.com.hbscjt.app.framework.security.config;
 
+import cn.com.hbscjt.app.framework.security.core.rpc.LoginUserRequestInterceptor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -13,6 +14,11 @@ public class SecurityOneConfiguration {
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
+    }
+
+    @Bean
+    public LoginUserRequestInterceptor loginUserRequestInterceptor() {
+        return new LoginUserRequestInterceptor();
     }
 
     /**

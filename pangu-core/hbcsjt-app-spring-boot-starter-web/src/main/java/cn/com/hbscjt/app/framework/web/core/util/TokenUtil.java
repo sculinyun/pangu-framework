@@ -28,10 +28,11 @@ public class TokenUtil {
         String token = getToken(auth);
         String redisKey=formatKey(token);
         Oauth2Token tokenDTO=(Oauth2Token)redisService.get(redisKey);
-        return buildLoginUserByToekn(tokenDTO);
+        if(null==tokenDTO)return null;
+        return buildLoginUserByToken(tokenDTO);
     }
 
-    private static LoginUser buildLoginUserByToekn(Oauth2Token tokenDTO){
+    private static LoginUser buildLoginUserByToken(Oauth2Token tokenDTO){
         LoginUser loginUser=new LoginUser();
         loginUser.setUserId(tokenDTO.getUserId());
         loginUser.setType(tokenDTO.getUserType());

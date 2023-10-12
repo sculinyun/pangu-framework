@@ -30,6 +30,7 @@ import springfox.documentation.spring.web.plugins.WebFluxRequestHandlerProvider;
 import springfox.documentation.spring.web.plugins.WebMvcRequestHandlerProvider;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -121,10 +122,20 @@ public class SwaggerAutoConfiguration implements WebMvcConfigurer {
 
     // ========== globalRequestParameters ==========
     private static List<RequestParameter> globalRequestParameters() {
-        RequestParameterBuilder tenantParameter = new RequestParameterBuilder()
+        RequestParameterBuilder tokenParameter = new RequestParameterBuilder()
                 .name(SystemConstant.AUTH_TOKEN).description("系统token")
                 .in(ParameterType.HEADER).example(new ExampleBuilder().value(1L).build());
-        return Collections.singletonList(tenantParameter.build());
+        RequestParameterBuilder sourceParameter = new RequestParameterBuilder()
+                .name(SystemConstant.SOURCE).description("来源")
+                .in(ParameterType.HEADER).example(new ExampleBuilder().value("app").build());
+        RequestParameterBuilder versionParameter = new RequestParameterBuilder()
+                .name(SystemConstant.VERSION).description("版本号")
+                .in(ParameterType.HEADER).example(new ExampleBuilder().value("1.0.0").build());
+        List<RequestParameter> pars=new ArrayList<>();
+        pars.add(tokenParameter.build());
+        pars.add(sourceParameter.build());
+        pars.add(versionParameter.build());
+        return pars;
     }
 
     //解决knife4j 404访问问题

@@ -9,6 +9,7 @@ import cn.com.hbscjt.app.framework.develop.core.pojo.CodegenColumnDO;
 import cn.com.hbscjt.app.framework.develop.core.pojo.CodegenTableDO;
 import cn.com.hbscjt.app.framework.mybatis.core.base.BaseDO;
 import cn.com.hbscjt.app.framework.mybatis.core.props.DatasourceProperties;
+import cn.hutool.core.io.FileUtil;
 import cn.hutool.core.map.MapUtil;
 import cn.hutool.core.util.ReflectUtil;
 import cn.hutool.core.util.StrUtil;
@@ -22,6 +23,7 @@ import com.baomidou.mybatisplus.generator.config.querys.MySqlQuery;
 import com.baomidou.mybatisplus.generator.config.rules.DateType;
 import com.baomidou.mybatisplus.generator.query.SQLQuery;
 import com.google.common.collect.Sets;
+import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
@@ -113,22 +115,30 @@ public class CodegenBuilder {
 
     /**
      * 判断文件是否存在，不存在就创建
-     *
      * @param file
      */
+    @SneakyThrows
     public static void createFile(File file) {
         if (file.exists()) {
+            //递归删除整个文件夹
+            FileUtil.clean(file);
+            Thread.sleep(1L);
+            createMutiFiles(file);
         } else {
-            if (!file.getParentFile().exists()) {
-                //创建上级目录
-                file.getParentFile().mkdirs();
-            }
-            try {
-                //在上级目录里创建文件
-                file.createNewFile();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            createMutiFiles(file);
+        }
+    }
+
+    private static void createMutiFiles(File file){
+        if (!file.getParentFile().exists()) {
+            //创建上级目录
+            file.getParentFile().mkdirs();
+        }
+        try {
+            //在上级目录里创建文件
+            file.createNewFile();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 

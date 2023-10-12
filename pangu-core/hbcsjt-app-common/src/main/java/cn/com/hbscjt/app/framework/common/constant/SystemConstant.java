@@ -28,4 +28,8 @@ public interface SystemConstant {
 
     String CONTENT_TYPE_NAME = "Content-type";
     String CONTENT_TYPE = "application/json;charset=utf-8";
+
+    String FROM="inner";
+
+    String SOURCE="source";
 }

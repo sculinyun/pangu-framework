@@ -18,21 +18,16 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.AuthenticationEntryPoint;
 import org.springframework.security.web.access.AccessDeniedHandler;
 
-import javax.annotation.Resource;
-
 @Configuration(proxyBeanMethods = false)
 @EnableConfigurationProperties(SecurityProperties.class)
 @ConditionalOnProperty(name = "boot.auth.webEnabled",havingValue = "true")
 public class SecurityAutoConfiguration {
 
-    @Resource
-    private SecurityProperties securityProperties;
-
     /**
      * 处理用户未登录拦截的切面的 Bean
      */
     @Bean
-    public PreAuthAspect preAuthenticatedAspect(ApplicationContext applicationContext,SecurityFrameworkService securityFrameworkService) {
+    public PreAuthAspect preAuthAspect(ApplicationContext applicationContext,SecurityFrameworkService securityFrameworkService) {
         return new PreAuthAspect(applicationContext,securityFrameworkService);
     }
 
@@ -56,8 +51,8 @@ public class SecurityAutoConfiguration {
      * Token 认证过滤器 Bean
      */
     @Bean
-    public TokenAuthenticationFilter authenticationTokenFilter() {
-        return new TokenAuthenticationFilter();
+    public TokenAuthenticationFilter authenticationTokenFilter(SecurityProperties securityProperties) {
+        return new TokenAuthenticationFilter(securityProperties);
     }
 
     @Bean("ss")

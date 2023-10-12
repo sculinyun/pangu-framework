@@ -33,8 +33,8 @@ public class PreAuthAspect{
 
     private static final ExpressionParser SPEL_PARSER = new SpelExpressionParser();
 
-    @Around("@annotation(preAuth)")
-    public Object around(ProceedingJoinPoint point, PreAuth preAuth) throws Throwable {
+    @Around("@annotation(cn.com.hbscjt.app.framework.security.core.annotations.PreAuth)")
+    public Object around(ProceedingJoinPoint point) throws Throwable {
         if (handleAuth(point)) {
             return point.proceed();
         }

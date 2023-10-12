@@ -2,7 +2,6 @@ package cn.com.hbscjt.app.framework.security.config;
 
 import cn.com.hbscjt.app.framework.security.core.filter.TokenAuthenticationFilter;
 import cn.com.hbscjt.app.framework.security.core.props.SecurityProperties;
-import cn.com.hbscjt.app.framework.web.core.props.WebProperties;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
@@ -17,7 +16,6 @@ import org.springframework.security.web.access.AccessDeniedHandler;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 import javax.annotation.Resource;
-import java.util.List;
 
 /**
  * 自定义的 Spring Security 配置适配器实现
@@ -26,9 +24,6 @@ import java.util.List;
 @ConditionalOnProperty(name = "core.security.enabled",havingValue = "true")
 public class SecurityConfigurerAdapter extends WebSecurityConfigurerAdapter {
 
-    @Resource
-    private WebProperties webProperties;
-    
     @Resource
     private SecurityProperties securityProperties;
 
@@ -47,13 +42,6 @@ public class SecurityConfigurerAdapter extends WebSecurityConfigurerAdapter {
      */
     @Resource
     private TokenAuthenticationFilter authenticationTokenFilter;
-
-    /**
-     * 自定义的权限映射 Bean
-     * @see #configure(HttpSecurity)
-     */
-    @Resource
-    private List<AuthorizeRequestsCustomizer> authorizeRequestsCustomizers;
 
     /**
      * 由于 Spring Security 创建 AuthenticationManager 对象时，没声明 @Bean 注解，导致无法被注入
@@ -104,11 +92,8 @@ public class SecurityConfigurerAdapter extends WebSecurityConfigurerAdapter {
                 .antMatchers(HttpMethod.GET, "/*.html", "/**/*.html", "/**/*.css", "/**/*.js").permitAll()
                 // 基于security.permit-all-urls 无需认证
                 .antMatchers(securityProperties.getPermitAllUrls().toArray(new String[0])).permitAll()
-                // ②：每个项目的自定义规则
-                .and().authorizeRequests(registry -> // 下面，循环设置自定义规则
-                        authorizeRequestsCustomizers.forEach(customizer -> customizer.customize(registry)))
                 // ③：兜底规则，必须认证
-                .authorizeRequests()
+                .and().authorizeRequests()
                 .anyRequest().authenticated();
         // 添加Token Filter
         httpSecurity.addFilterBefore(authenticationTokenFilter, UsernamePasswordAuthenticationFilter.class);

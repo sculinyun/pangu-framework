@@ -23,6 +23,7 @@ import java.util.List;
 /**
  * 自定义参数解析器
  */
+
 @Configuration
 @Order(Ordered.HIGHEST_PRECEDENCE)
 public class BootMvcConfiguration implements WebMvcConfigurer {

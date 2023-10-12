@@ -12,8 +12,8 @@ import lombok.Getter;
 public enum SourceEnum {
 	
 	APP(1, "app"),
-	WEB(2, "web"),
-	H5(3, "h5");
+	WEB(2, "web后台"),
+	DEVELOP(3, "开发者平台");
 
     private final Integer code;
     private final String desc;

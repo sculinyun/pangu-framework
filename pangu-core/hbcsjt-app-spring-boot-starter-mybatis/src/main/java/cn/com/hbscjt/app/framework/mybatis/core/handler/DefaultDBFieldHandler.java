@@ -31,7 +31,8 @@ public class DefaultDBFieldHandler implements MetaObjectHandler {
             if (Objects.isNull(baseDO.getUpdateTime())) {
                 baseDO.setUpdateTime(current);
             }
-            Long userId = WebFrameworkUtils.getLoginUserId();
+            LoginUser loginUser=WebFrameworkUtils.getLoginUser();
+            Long userId = loginUser==null?null:loginUser.getUserId();
             // 当前登录用户不为空，创建人为空，则当前登录用户为创建人
             if (Objects.nonNull(userId) && Objects.isNull(baseDO.getCreator())) {
                 baseDO.setCreator(userId);

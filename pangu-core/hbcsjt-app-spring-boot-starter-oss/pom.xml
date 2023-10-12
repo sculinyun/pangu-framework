@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>pangu-core</artifactId>
+        <groupId>cn.com.hbscjt</groupId>
+        <version>${revision}</version>
+    </parent>
+
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>hbcsjt-app-spring-boot-starter-oss</artifactId>
+    <packaging>jar</packaging>
+
+    <name>${project.artifactId}</name>
+    <description>S3存储组件,核心对外提供文件存储服务</description>
+
+    <dependencies>
+        <!--基础组件 begin-->
+        <dependency>
+            <groupId>cn.com.hbscjt</groupId>
+            <artifactId>hbcsjt-app-common</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>cn.com.hbscjt</groupId>
+            <artifactId>hbcsjt-app-spring-boot-starter-redis</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.amazonaws</groupId>
+            <artifactId>aws-java-sdk-s3</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-context</artifactId>
+        </dependency>
+    </dependencies>
+
+</project>

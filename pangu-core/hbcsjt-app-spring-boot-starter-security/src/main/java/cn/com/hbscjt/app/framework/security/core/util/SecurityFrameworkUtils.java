@@ -8,7 +8,6 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
-import org.springframework.util.StringUtils;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.Collections;
@@ -18,30 +17,10 @@ import java.util.Collections;
  */
 public class SecurityFrameworkUtils {
 
-    public static final String AUTHORIZATION_BEARER = "Bearer";
-
     public static final String LOGIN_USER_HEADER = "login-user";
 
     private SecurityFrameworkUtils() {}
 
-    /**
-     * 从请求中，获得认证 Token
-     *
-     * @param request 请求
-     * @param header 认证 Token 对应的 Header 名字
-     * @return 认证 Token
-     */
-    public static String obtainAuthorization(HttpServletRequest request, String header) {
-        String authorization = request.getHeader(header);
-        if (!StringUtils.hasText(authorization)) {
-            return null;
-        }
-        int index = authorization.indexOf(AUTHORIZATION_BEARER + " ");
-        if (index == -1) { // 未找到
-            return null;
-        }
-        return authorization.substring(index + 7).trim();
-    }
 
     /**
      * 获得当前认证信息
@@ -56,6 +35,7 @@ public class SecurityFrameworkUtils {
         return context.getAuthentication();
     }
 
+
     /**
      * 获取当前用户
      * @return 当前用户
@@ -69,15 +49,6 @@ public class SecurityFrameworkUtils {
         return authentication.getPrincipal() instanceof LoginUser ? (LoginUser) authentication.getPrincipal() : null;
     }
 
-    /**
-     * 获得当前用户的编号，从上下文中
-     * @return 用户编号
-     */
-    @Nullable
-    public static Long getLoginUserId() {
-        LoginUser loginUser = getLoginUser();
-        return loginUser != null ? loginUser.getUserId() : null;
-    }
 
     /**
      * 设置当前用户
@@ -88,9 +59,8 @@ public class SecurityFrameworkUtils {
         //创建 Authentication，并设置到上下文
         Authentication authentication = buildAuthentication(loginUser, request);
         SecurityContextHolder.getContext().setAuthentication(authentication);
-        //额外设置到 request中
-        WebFrameworkUtils.setLoginUserId(request, loginUser.getUserId());
-        WebFrameworkUtils.setLoginUserType(request, loginUser.getType());
+        //同时设置到reqeust
+        WebFrameworkUtils.setLoginUser(loginUser);
     }
 
     private static Authentication buildAuthentication(LoginUser loginUser, HttpServletRequest request) {

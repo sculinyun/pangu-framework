@@ -38,6 +38,7 @@
         <module>hbcsjt-app-spring-boot-starter-swagger</module>
         <module>hbcsjt-app-spring-boot-starter-develop</module>
         <module>hbcsjt-app-spring-boot-starter-sms</module>
+        <module>hbcsjt-app-spring-boot-starter-oss</module>
     </modules>
 
     <build>
