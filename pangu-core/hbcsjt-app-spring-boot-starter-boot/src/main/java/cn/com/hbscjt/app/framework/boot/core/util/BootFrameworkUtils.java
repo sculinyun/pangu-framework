@@ -21,6 +21,9 @@ public class BootFrameworkUtils {
         HttpServletRequest request=WebFrameworkUtils.getRequest();
         String source=WebFrameworkUtils.getSource(request);
         UserTypeEnum userTypeEnum=UserTypeEnum.valueOfBySource(source);
+        if (null==userTypeEnum){
+            SecurityFrameworkUtils.setLoginUser(loginUser,request);
+        }
         switch (userTypeEnum){
             case MEMBER:
                 WebFrameworkUtils.setLoginUser(loginUser);
