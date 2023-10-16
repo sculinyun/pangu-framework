@@ -23,10 +23,12 @@ public class BootFrameworkUtils {
         UserTypeEnum userTypeEnum=UserTypeEnum.valueOfBySource(source);
         if (null==userTypeEnum){
             SecurityFrameworkUtils.setLoginUser(loginUser,request);
+            return;
         }
         switch (userTypeEnum){
             case MEMBER:
                 WebFrameworkUtils.setLoginUser(loginUser);
+                break;
             default:
                 SecurityFrameworkUtils.setLoginUser(loginUser,request);
         }
