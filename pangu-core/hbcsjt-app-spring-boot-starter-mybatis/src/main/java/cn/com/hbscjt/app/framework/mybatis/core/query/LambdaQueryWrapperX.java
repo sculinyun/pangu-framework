@@ -79,14 +79,16 @@ public class LambdaQueryWrapperX<T> extends LambdaQueryWrapper<T> {
     }
 
     public LambdaQueryWrapperX<T> betweenIfPresent(SFunction<T, ?> column, Object[] array) {
-        if (!ObjectUtil.isEmpty(array[0]) && !!ObjectUtil.isEmpty(array[1])) {
-            return (LambdaQueryWrapperX<T>) super.between(column, array[0], array[1]);
-        }
-        if (!ObjectUtil.isEmpty(array[0])) {
-            return (LambdaQueryWrapperX<T>) ge(column, array[0]);
-        }
-        if (!ObjectUtil.isEmpty(array[1])) {
-            return (LambdaQueryWrapperX<T>) le(column, array[1]);
+        if(null !=array) {
+            if (!ObjectUtil.isEmpty(array[0]) && !!ObjectUtil.isEmpty(array[1])) {
+                return (LambdaQueryWrapperX<T>) super.between(column, array[0], array[1]);
+            }
+            if (!ObjectUtil.isEmpty(array[0])) {
+                return (LambdaQueryWrapperX<T>) ge(column, array[0]);
+            }
+            if (!ObjectUtil.isEmpty(array[1])) {
+                return (LambdaQueryWrapperX<T>) le(column, array[1]);
+            }
         }
         return this;
     }
