@@ -29,9 +29,6 @@ public class BaseServiceImpl<M extends BaseMapper<T>, T extends BaseDO> extends 
 		Date now = DateUtil.date();
 		entity.setCreateTime(now);
 		entity.setUpdateTime(now);
-		if (entity.getStatus() == null) {
-			entity.setStatus(SystemConstant.DB_STATUS_NORMAL);
-		}
 		entity.setDeleted(SystemConstant.DB_NOT_DELETED);
 		return super.save(entity);
 	}
