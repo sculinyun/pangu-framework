@@ -1,6 +1,5 @@
 package cn.com.hbscjt.app.framework.common.core;
 
-import com.google.common.base.Objects;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -8,7 +7,6 @@ import lombok.NoArgsConstructor;
 /**
  * Key Value 的键值对
  *
- * @author 芋道源码
  */
 @Data
 @NoArgsConstructor

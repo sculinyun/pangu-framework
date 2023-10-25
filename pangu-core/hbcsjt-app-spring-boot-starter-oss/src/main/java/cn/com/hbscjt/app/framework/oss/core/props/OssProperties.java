@@ -26,7 +26,7 @@ public class OssProperties implements Serializable {
     /**
      * 是否开启OSS
      */
-    private Boolean enabled;
+    private Boolean enabled=Boolean.FALSE;
     /**
      * 对象存储服务的URL
      */

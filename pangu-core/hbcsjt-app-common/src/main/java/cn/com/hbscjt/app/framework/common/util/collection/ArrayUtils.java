@@ -12,7 +12,6 @@ import static cn.com.hbscjt.app.framework.common.util.collection.CollectionUtils
 /**
  * Array 工具类
  *
- * @author 芋道源码
  */
 public class ArrayUtils {
 

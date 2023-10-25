@@ -9,7 +9,6 @@ import java.util.Set;
 /**
  * 参考 {@link com.baomidou.mybatisplus.extension.handlers.JacksonTypeHandler} 实现
  *
- * @author 芋道源码
  */
 public class JsonStringSetTypeHandler extends AbstractJsonTypeHandler<Object> {
 

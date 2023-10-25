@@ -36,5 +36,9 @@
             <groupId>cn.com.hbscjt</groupId>
             <artifactId>hbcsjt-app-spring-boot-starter-sms</artifactId>
         </dependency>
+        <dependency>
+            <groupId>cn.com.hbscjt</groupId>
+            <artifactId>hbcsjt-app-spring-boot-starter-oss</artifactId>
+        </dependency>
     </dependencies>
 </project>

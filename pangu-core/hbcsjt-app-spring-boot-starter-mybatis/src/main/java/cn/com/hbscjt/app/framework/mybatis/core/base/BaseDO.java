@@ -44,12 +44,6 @@ public abstract class BaseDO implements Serializable {
     private Long updater;
 
     /**
-     * 状态[1:正常]
-     */
-    @ApiModelProperty(value = "业务状态")
-    private Integer status;
-
-    /**
      * 是否删除
      */
     @TableLogic

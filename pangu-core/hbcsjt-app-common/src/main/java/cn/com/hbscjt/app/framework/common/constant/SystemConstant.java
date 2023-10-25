@@ -31,5 +31,7 @@ public interface SystemConstant {
 
     String FROM="inner";
 
+    String OUT_FROM="outInner";
+
     String SOURCE="source";
 }

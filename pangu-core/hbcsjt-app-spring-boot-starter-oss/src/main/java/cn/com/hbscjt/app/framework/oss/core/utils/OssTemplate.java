@@ -111,6 +111,19 @@ public class OssTemplate implements InitializingBean {
 		return url.toString();
 	}
 
+    /**
+     * 获取文件外链
+     *
+     * @param bucketName bucket名称
+     * @param objectName 文件名称
+     * @return url
+     */
+    @SneakyThrows
+    public String getObjectURL(String bucketName, String objectName) {
+        URL url=amazonS3.getUrl(bucketName,objectName);
+        return url.toString();
+    }
+
 	/**
 	 * 获取文件
 	 *
