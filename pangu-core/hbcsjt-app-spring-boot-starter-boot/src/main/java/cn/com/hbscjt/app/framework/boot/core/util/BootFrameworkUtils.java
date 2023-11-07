@@ -21,17 +21,12 @@ public class BootFrameworkUtils {
         HttpServletRequest request=WebFrameworkUtils.getRequest();
         String source=WebFrameworkUtils.getSource(request);
         UserTypeEnum userTypeEnum=UserTypeEnum.valueOfBySource(source);
-        if (null==userTypeEnum){
-            SecurityFrameworkUtils.setLoginUser(loginUser,request);
+        if (null!=userTypeEnum&&userTypeEnum.equals(UserTypeEnum.MEMBER)){
+            WebFrameworkUtils.setLoginUser(loginUser);
             return;
         }
-        switch (userTypeEnum){
-            case MEMBER:
-                WebFrameworkUtils.setLoginUser(loginUser);
-                break;
-            default:
-                SecurityFrameworkUtils.setLoginUser(loginUser,request);
-        }
+        SecurityFrameworkUtils.setLoginUser(loginUser,request);
+        return;
     }
 
     /**
@@ -42,12 +37,11 @@ public class BootFrameworkUtils {
         HttpServletRequest request=WebFrameworkUtils.getRequest();
         String source=WebFrameworkUtils.getSource(request);
         UserTypeEnum userTypeEnum=UserTypeEnum.valueOfBySource(source);
-        switch (userTypeEnum){
-            case MEMBER:
-                return WebFrameworkUtils.getLoginUser();
-            default:
-                return SecurityFrameworkUtils.getLoginUser();
+        if (null!=userTypeEnum&&userTypeEnum.equals(UserTypeEnum.MEMBER)){
+            return WebFrameworkUtils.getLoginUser();
+
         }
+        return SecurityFrameworkUtils.getLoginUser();
     }
 
 }

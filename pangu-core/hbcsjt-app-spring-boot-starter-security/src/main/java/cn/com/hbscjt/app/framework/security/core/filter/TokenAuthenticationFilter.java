@@ -85,7 +85,7 @@ public class TokenAuthenticationFilter extends OncePerRequestFilter {
                 //校验用户类型
                 String source=request.getHeader(SOURCE);
                 UserTypeEnum requestType=UserTypeEnum.valueOfBySource(source);
-                if(loginUser.getType()!= requestType.getValue()){
+                if(null!=requestType&&loginUser.getType()!= requestType.getValue()){
                     throw new AccessDeniedException("错误的用户类型");
                 }
             }else {

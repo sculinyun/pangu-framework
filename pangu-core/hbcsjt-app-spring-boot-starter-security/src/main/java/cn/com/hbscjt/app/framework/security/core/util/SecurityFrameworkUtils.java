@@ -60,7 +60,7 @@ public class SecurityFrameworkUtils {
         Authentication authentication = buildAuthentication(loginUser, request);
         SecurityContextHolder.getContext().setAuthentication(authentication);
         //同时设置到reqeust
-        WebFrameworkUtils.setLoginUser(loginUser);
+//        WebFrameworkUtils.setLoginUser(loginUser);
     }
 
     private static Authentication buildAuthentication(LoginUser loginUser, HttpServletRequest request) {
