@@ -107,7 +107,7 @@ public class MybatisAutoConfiguration {
      * sql 日志
      */
     @Bean
-    @ConditionalOnProperty(name = "boot.mybatis.info.sql", matchIfMissing = true)
+    @ConditionalOnProperty(name = "boot.mybatis.info.sql")
     public SqlLogInterceptor sqlLogInterceptor() {
         return new SqlLogInterceptor();
     }

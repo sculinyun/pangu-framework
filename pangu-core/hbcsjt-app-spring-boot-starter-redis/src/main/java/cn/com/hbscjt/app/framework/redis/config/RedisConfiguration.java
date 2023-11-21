@@ -16,7 +16,9 @@ import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
+import org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory;
 import org.springframework.data.redis.core.RedisOperations;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.serializer.Jackson2JsonRedisSerializer;
@@ -60,7 +62,7 @@ public class RedisConfiguration {
     @SuppressWarnings("all")
     @Bean(name = "redisTemplate")
     @ConditionalOnClass(RedisOperations.class)
-    public RedisTemplate redisTemplate(RedisConnectionFactory factory, RedisSerializer<String> redisKeySerializer, Jackson2JsonRedisSerializer<Object> jackson2JsonRedisSerializer) {
+    public RedisTemplate redisTemplate(LettuceConnectionFactory factory, RedisSerializer<String> redisKeySerializer, Jackson2JsonRedisSerializer<Object> jackson2JsonRedisSerializer) {
         RedisTemplate<String, Object> redisTemplate = new RedisTemplate<>();
         // key 序列化
         redisTemplate.setKeySerializer(redisKeySerializer);
@@ -71,6 +73,15 @@ public class RedisConfiguration {
         redisTemplate.setConnectionFactory(factory);
         log.info("-----初始化lettuce配置完成-----");
         return redisTemplate;
+    }
+
+    @Primary
+    @Bean
+    @ConditionalOnBean(RedisConnectionFactory.class)
+    public LettuceConnectionFactory LettuceConnectionFactory(RedisConnectionFactory redisConnectionFactory){
+        LettuceConnectionFactory lettuceConnectionFactory=(LettuceConnectionFactory)redisConnectionFactory;
+        lettuceConnectionFactory.setValidateConnection(true);
+        return lettuceConnectionFactory;
     }
 
     @Bean

@@ -94,6 +94,8 @@
         <justauth.version>1.4.0</justauth.version>
         <jimureport.version>1.5.6</jimureport.version>
         <xercesImpl.version>2.12.2</xercesImpl.version>
+        <!--feign三方-->
+        <feign-form.version>3.8.0</feign-form.version>
     </properties>
 
     <dependencyManagement>
@@ -120,7 +122,6 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
-
             <!-- 业务组件 -->
             <dependency>
                 <groupId>cn.com.hbscjt</groupId>
@@ -191,6 +192,17 @@
                 <groupId>cn.com.hbscjt</groupId>
                 <artifactId>hbcsjt-app-spring-boot-starter-oss</artifactId>
                 <version>${revision}</version>
+            </dependency>
+            <!--feign组件-->
+            <dependency>
+                <groupId>io.github.openfeign.form</groupId>
+                <artifactId>feign-form</artifactId>
+                <version>${feign-form.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.github.openfeign.form</groupId>
+                <artifactId>feign-form-spring</artifactId>
+                <version>${feign-form.version}</version>
             </dependency>
             <!-- Spring 核心 -->
             <dependency>

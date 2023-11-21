@@ -31,6 +31,8 @@ public interface SystemConstant {
 
     String FROM="inner";
 
+    String HEADER_FROM="inner=inner";
+
     String OUT_FROM="outInner";
 
     String SOURCE="source";

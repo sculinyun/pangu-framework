@@ -2,7 +2,6 @@ package cn.com.hbscjt.app.framework.auth.core.aspect;
 
 import cn.com.hbscjt.app.framework.auth.core.annotation.Login;
 import cn.com.hbscjt.app.framework.common.entity.LoginUser;
-import cn.com.hbscjt.app.framework.common.exception.AuthException;
 import cn.com.hbscjt.app.framework.common.exception.enums.GlobalErrorCodeConstants;
 import cn.com.hbscjt.app.framework.web.core.util.WebFrameworkUtils;
 import cn.hutool.core.util.ObjectUtil;
@@ -14,6 +13,8 @@ import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.reflect.MethodSignature;
 
 import java.lang.reflect.Method;
+
+import static cn.com.hbscjt.app.framework.common.exception.util.ServiceExceptionUtil.exception;
 
 /**
  * APP登录态验证
@@ -32,7 +33,7 @@ public class LoginAspect {
         if(ObjectUtil.isNotEmpty(preLogin)){
             LoginUser loginUser = WebFrameworkUtils.getLoginUser();
             if(ObjectUtil.isEmpty(loginUser)){
-                throw new AuthException(GlobalErrorCodeConstants.UNAUTHORIZED);
+                throw exception(GlobalErrorCodeConstants.UNAUTHORIZED);
             }
         }
         return point.proceed();

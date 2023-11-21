@@ -9,7 +9,6 @@ import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.databind.module.SimpleModule;
-import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
 import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer;
 import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer;
 import lombok.extern.slf4j.Slf4j;
@@ -33,9 +32,7 @@ public class WebJacksonAutoConfiguration {
     public ObjectMapper objectMapper() {
         ObjectMapper objectMapper = new ObjectMapper();
         SimpleModule simpleModule = new SimpleModule();
-        simpleModule.addSerializer(Long.class, ToStringSerializer.instance)
-                .addSerializer(Long.TYPE, ToStringSerializer.instance)
-                .addSerializer(Date.class,new DateJsonSerializer())
+        simpleModule.addSerializer(Date.class,new DateJsonSerializer())
                 .addDeserializer(Date.class,new DateJsonDeSerializer())
                 .addSerializer(LocalDateTime.class, LocalDateTimeSerializer.INSTANCE)
                 .addDeserializer(LocalDateTime.class, LocalDateTimeDeserializer.INSTANCE);
