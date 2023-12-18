@@ -24,8 +24,8 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 import static cn.com.hbscjt.app.framework.common.constant.SystemConstant.SOURCE;
 import static cn.com.hbscjt.app.framework.common.exception.enums.GlobalErrorCodeConstants.UNAUTHORIZED;
@@ -39,7 +39,7 @@ public class TokenAuthenticationFilter extends OncePerRequestFilter {
 
     private final SecurityProperties securityProperties;
 
-    private static final List<PathPattern> ingorePathList=new ArrayList<>();
+    private static final List<PathPattern> ingorePathList=new CopyOnWriteArrayList<>();
 
     @PostConstruct
     public void init(){
