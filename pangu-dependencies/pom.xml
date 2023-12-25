@@ -33,6 +33,8 @@
         <dynamic-datasource.version>3.5.0</dynamic-datasource.version>
         <redisson.version>3.17.3</redisson.version>
         <mysql.connector.version>5.1.47</mysql.connector.version>
+        <!--分布式事务相关-->
+        <seata.version>1.4.2</seata.version>
         <!-- RPC 相关 -->
         <dubbo.version>2.7.15</dubbo.version>
         <!-- log4j 相关 -->
@@ -193,6 +195,11 @@
                 <artifactId>hbcsjt-app-spring-boot-starter-oss</artifactId>
                 <version>${revision}</version>
             </dependency>
+            <dependency>
+                <groupId>cn.com.hbscjt</groupId>
+                <artifactId>hbcsjt-app-spring-boot-starter-seata</artifactId>
+                <version>${revision}</version>
+            </dependency>
             <!--feign组件-->
             <dependency>
                 <groupId>io.github.openfeign.form</groupId>
@@ -344,6 +351,12 @@
                 <groupId>io.netty</groupId>
                 <artifactId>netty-all</artifactId>
                 <version>${netty.version}</version>
+            </dependency>
+            <!--分布式事务组件-->
+            <dependency>
+                <groupId>io.seata</groupId>
+                <artifactId>seata-spring-boot-starter</artifactId>
+                <version>${seata.version}</version>
             </dependency>
 
             <!-- 工具类相关 -->

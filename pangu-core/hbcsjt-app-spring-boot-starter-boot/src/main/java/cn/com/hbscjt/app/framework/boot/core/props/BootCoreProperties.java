@@ -16,4 +16,6 @@ public class BootCoreProperties {
     private String appName;
     //应用端口
     private String port;
+    //seata命名空间
+    private String seataNs="0bf48c4f-f4a9-4cbe-abc3-8727c0c15b73";
 }

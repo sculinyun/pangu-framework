@@ -21,6 +21,10 @@
             <groupId>cn.com.hbscjt</groupId>
             <artifactId>hbcsjt-app-common</artifactId>
         </dependency>
+        <dependency>
+            <groupId>cn.com.hbscjt</groupId>
+            <artifactId>hbcsjt-app-spring-boot-starter-seata</artifactId>
+        </dependency>
         <!--需要common的依赖-->
         <dependency>
             <groupId>org.springframework.boot</groupId>

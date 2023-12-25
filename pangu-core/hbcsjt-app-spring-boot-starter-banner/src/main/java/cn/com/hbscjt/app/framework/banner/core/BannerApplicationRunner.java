@@ -19,12 +19,15 @@ import java.util.concurrent.TimeUnit;
 @Slf4j
 public class BannerApplicationRunner implements ApplicationRunner {
 
+    public static final String SPLIT_APP_NAME="gateway-server";
+
     @Override
     public void run(ApplicationArguments args) {
         Environment environment=SpringUtil.getBean(Environment.class);
         String bootAppName=environment.getProperty("boot.core.appName");
         String bootPort =environment.getProperty("boot.core.port");
         String bootEnv=environment.getProperty("boot.core.env");
+        String seataNs=environment.getProperty("boot.core.seataNs");
         if(ObjectUtil.isEmpty(bootAppName)){
             log.info("*****[基础检查]项目应用名称不能为空*****");
             return;
@@ -33,13 +36,17 @@ public class BannerApplicationRunner implements ApplicationRunner {
             log.info("*****[基础检查]项目端口号不能为空*****");
             return;
         }
+        if(ObjectUtil.isEmpty(seataNs)&&(!SPLIT_APP_NAME.equals(bootAppName))){
+            log.info("*****[基础检查]Seata命名空间不能为空*****");
+            return;
+        }
         String bootName = bootAppName.toUpperCase();
         String activeProfile = StringUtils.arrayToCommaDelimitedString(environment.getActiveProfiles());
         String profile=ObjectUtil.isNotEmpty(activeProfile)?activeProfile:bootEnv;
 
         ThreadUtil.execute(() -> {
             ThreadUtil.sleep(1, TimeUnit.SECONDS); // 延迟 1 秒，保证输出到结尾
-            log.info("---[{}]---启动完成，当前使用的端口:[{}]，环境变量:[{}]---", bootName, bootPort, profile);
+            log.info("---[{}]---启动完成，当前使用的端口:[{}]，环境变量:[{}]---", bootName, bootPort, profile,seataNs);
         });
     }
 

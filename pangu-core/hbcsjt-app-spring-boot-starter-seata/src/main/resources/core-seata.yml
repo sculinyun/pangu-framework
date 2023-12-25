@@ -1,0 +1,20 @@
+seata:
+  enabled: true
+  application-id: ${boot.core.appName}
+  tx-service-group: default_tx_group
+  config:
+    type: nacos
+    nacos:
+      group: SEATA_GROUP
+      namespace: ${boot.core.seataNs}
+      server-addr: ${spring.cloud.nacos.server-addr} # Nacos 服务地址
+      data-id: seata-server.properties
+  registry:
+    type: nacos
+    nacos:
+      application: seata-server
+      group: SEATA_GROUP
+      namespace: ${boot.core.seataNs}
+      serverAddr: ${spring.cloud.nacos.server-addr} # Nacos 服务地址
+  store:
+    mode: db
