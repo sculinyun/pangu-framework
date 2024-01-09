@@ -24,6 +24,7 @@ import static java.util.concurrent.TimeUnit.SECONDS;
 
 @AutoConfigureAfter(CloudAutoConfiguration.class)
 @AutoConfigureBefore(FeignAutoConfiguration.class)
+@Configuration(proxyBeanMethods = false)
 public class FeignConfig{
 
     @Bean

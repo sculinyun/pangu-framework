@@ -1,5 +1,6 @@
 package cn.com.hbscjt.app.framework.security.core.filter;
 
+import cn.com.hbscjt.app.framework.common.constant.SystemConstant;
 import cn.com.hbscjt.app.framework.common.entity.LoginUser;
 import cn.com.hbscjt.app.framework.common.enums.UserTypeEnum;
 import cn.com.hbscjt.app.framework.common.pojo.CommonResult;
@@ -12,6 +13,7 @@ import cn.com.hbscjt.app.framework.web.core.util.WebFrameworkUtils;
 import cn.hutool.core.util.ObjectUtil;
 import cn.hutool.core.util.StrUtil;
 import lombok.RequiredArgsConstructor;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.http.server.PathContainer;
 import org.springframework.security.access.AccessDeniedException;
 import org.springframework.web.filter.OncePerRequestFilter;
@@ -75,6 +77,11 @@ public class TokenAuthenticationFilter extends OncePerRequestFilter {
             chain.doFilter(request, response);
             return;
         }
+        //内部调用不需要鉴权,也避免各种平台的token校验。
+        if(ignoreInner(request)){
+            chain.doFilter(request, response);
+            return;
+        }
         // 情况一，基于 header[login-user] 获得用户，例如说来自 Gateway 或者其它服务透传
         LoginUser loginUser = buildLoginUserByHeader(request);
         // 情况二，基于 Token 获得用户
@@ -107,4 +114,14 @@ public class TokenAuthenticationFilter extends OncePerRequestFilter {
         return StrUtil.isNotEmpty(loginUserStr) ? JsonUtils.parseObject(loginUserStr, LoginUser.class) : null;
     }
 
+
+
+    private boolean ignoreInner(HttpServletRequest request){
+        String header = request.getHeader(SystemConstant.FROM);
+        if(StringUtils.isNotEmpty(header)&&(SystemConstant.FROM.equals(header))){
+            return true;
+        }else{
+            return false;
+        }
+    }
 }

@@ -1,7 +1,7 @@
 package cn.com.hbscjt.app.framework.cloud.core.aop;
 
-import cn.com.hbscjt.app.framework.cloud.core.annotation.Inner;
 import cn.com.hbscjt.app.framework.cloud.core.util.HttpUtils;
+import cn.com.hbscjt.app.framework.common.annotation.Inner;
 import cn.com.hbscjt.app.framework.common.constant.SystemConstant;
 import cn.com.hbscjt.app.framework.common.exception.AuthException;
 import cn.com.hbscjt.app.framework.common.exception.enums.GlobalErrorCodeConstants;
@@ -13,6 +13,8 @@ import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.reflect.MethodSignature;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
 
 import javax.servlet.http.HttpServletRequest;
 import java.lang.reflect.Method;
@@ -27,7 +29,7 @@ import java.lang.reflect.Method;
 @RequiredArgsConstructor
 public class InnerAspect {
 
-    @Around("@annotation(cn.com.hbscjt.app.framework.cloud.core.annotation.Inner)")
+    @Around("@annotation(cn.com.hbscjt.app.framework.common.annotation.Inner)")
     public Object around(ProceedingJoinPoint point) throws Throwable {
         HttpServletRequest request= HttpUtils.getRequest();
         String header = request.getHeader(SystemConstant.FROM);

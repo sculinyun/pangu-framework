@@ -1,4 +1,4 @@
-package cn.com.hbscjt.app.framework.cloud.core.annotation;
+package cn.com.hbscjt.app.framework.common.annotation;
 
 import java.lang.annotation.*;
 

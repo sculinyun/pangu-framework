@@ -1,4 +1,5 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
   cn.com.hbscjt.app.framework.cloud.config.CloudAutoConfiguration,\
-  cn.com.hbscjt.app.framework.cloud.config.Resilience4jConfig
+  cn.com.hbscjt.app.framework.cloud.config.Resilience4jConfig,\
+  cn.com.hbscjt.app.framework.cloud.config.FeignConfig
 
