@@ -86,6 +86,7 @@
         <okio.version>3.0.0</okio.version>
         <okhttp3.version>4.10.0</okhttp3.version>
         <commons.lang3.version>3.12.0</commons.lang3.version>
+        <hanlp.version>portable-1.8.4</hanlp.version>
         <!-- 三方云服务相关 -->
         <minio.version>8.2.2</minio.version>
         <aliyun-java-sdk-core.version>4.5.25</aliyun-java-sdk-core.version>
@@ -290,6 +291,12 @@
                 <groupId>io.jsonwebtoken</groupId>
                 <artifactId>jjwt</artifactId>
                 <version>${jjwt.version}</version>
+            </dependency>
+            <!--hanlp-->
+            <dependency>
+                <groupId>com.hankcs</groupId>
+                <artifactId>hanlp</artifactId>
+                <version>${hanlp.version}</version>
             </dependency>
 
             <dependency>
