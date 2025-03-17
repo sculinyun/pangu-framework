@@ -50,7 +50,7 @@
 #
 ## mybatis配置
 #mybatis-plus:
-#  mapper-locations: classpath:cn/com/hbcsjt/**/mapper/*Mapper.xml
+#  mapper-locations: classpath:cn/com/mw/**/mapper/*Mapper.xml
 #  typeAliasesPackage: ${boot.mybatis.info.base-package}.dal.dataobject
 #  global-config:
 #    banner: false

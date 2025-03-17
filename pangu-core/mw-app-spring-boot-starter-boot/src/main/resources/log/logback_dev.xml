@@ -74,7 +74,7 @@
     <logger name="com.netflix.discovery" level="INFO"/>
     <logger name="com.netflix.eureka" level="INFO"/>
     <!-- 业务日志 -->
-    <Logger name="cn.com.hbcsjt.app" level="DEBUG" />
+    <Logger name="cn.com.mw.app" level="DEBUG" />
     <!-- 减少nacos日志 -->
     <logger name="com.alibaba.nacos" level="ERROR"/>
 

@@ -73,7 +73,7 @@ public class Oauth2Constant {
 	 */
 	public static final String IMPLICIT = "implicit";
 
-	public static final String SIGN_KEY = "hbcsjt";
+	public static final String SIGN_KEY = "mw";
 
 	/**
 	 * 自定义client表名

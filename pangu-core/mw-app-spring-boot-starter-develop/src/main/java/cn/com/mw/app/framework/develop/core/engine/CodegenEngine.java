@@ -181,14 +181,14 @@ public class CodegenEngine {
     }
 
     private static String javaModuleFilePath(String path, String module, String src) {
-        return "hbcsjt-app-module-${table.packageModuleName}/" + // 顶级模块
-                "hbcsjt-app-module-${table.packageModuleName}-" + module + "/" + // 子模块
+        return "mw-app-module-${table.packageModuleName}/" + // 顶级模块
+                "mw-app-module-${table.packageModuleName}-" + module + "/" + // 子模块
                 "src/" + src + "/java/${basePackage}/module/${table.fileModuleName}/" + path + ".java";
     }
 
     private static String mapperXmlFilePath() {
-        return "hbcsjt-app-module-${table.packageModuleName}/" + // 顶级模块
-                "hbcsjt-app-module-${table.packageModuleName}-biz/" + // 子模块
+        return "mw-app-module-${table.packageModuleName}/" + // 顶级模块
+                "mw-app-module-${table.packageModuleName}-biz/" + // 子模块
                 "src/main/resources/mapper/${table.mapperModuleName}/${table.businessName}/${table.className}Mapper.xml";
     }
 
