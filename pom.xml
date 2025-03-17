@@ -5,12 +5,12 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>cn.com.mw</groupId>
-    <artifactId>pangu-framework</artifactId>
+    <artifactId>voy-framework</artifactId>
     <packaging>pom</packaging>
     <version>${revision}</version>
     <modules>
-        <module>pangu-dependencies</module>
-        <module>pangu-core</module>
+        <module>voy-dependencies</module>
+        <module>voy-core</module>
     </modules>
 
     <name>${project.artifactId}</name>
@@ -37,7 +37,7 @@
         <dependencies>
             <dependency>
                 <groupId>cn.com.mw</groupId>
-                <artifactId>pangu-dependencies</artifactId>
+                <artifactId>voy-dependencies</artifactId>
                 <version>1.0.0-SNAPSHOT</version>
                 <type>pom</type>
                 <scope>import</scope>
