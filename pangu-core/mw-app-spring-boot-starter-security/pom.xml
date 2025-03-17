@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>pangu-core</artifactId>
+        <groupId>cn.com.mw</groupId>
+        <version>${revision}</version>
+    </parent>
+
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>mw-app-spring-boot-starter-security</artifactId>
+    <packaging>jar</packaging>
+
+    <name>${project.artifactId}</name>
+    <description>security主要做认证和鉴权,以及部分加密</description>
+
+    <dependencies>
+        <!--基础组件 begin-->
+        <dependency>
+            <groupId>cn.com.mw</groupId>
+            <artifactId>mw-app-spring-boot-starter-web</artifactId>
+            <optional>true</optional>
+        </dependency>
+        <!--基础组件 end-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
+        <!-- Spring 核心 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-aop</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.github.openfeign</groupId>
+            <artifactId>feign-core</artifactId>
+        </dependency>
+    </dependencies>
+
+
+</project>

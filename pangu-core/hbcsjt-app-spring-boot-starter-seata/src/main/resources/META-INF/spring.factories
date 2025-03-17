@@ -1,5 +1,0 @@
-org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-  cn.com.hbscjt.app.framework.seata.config.SeataConfiguration
-
-
-

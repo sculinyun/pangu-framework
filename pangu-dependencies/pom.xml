@@ -5,7 +5,7 @@
 
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>cn.com.hbscjt</groupId>
+    <groupId>cn.com.mw</groupId>
     <artifactId>pangu-dependencies</artifactId>
     <version>${revision}</version>
     <packaging>pom</packaging>
@@ -127,78 +127,78 @@
             </dependency>
             <!-- 业务组件 -->
             <dependency>
-                <groupId>cn.com.hbscjt</groupId>
-                <artifactId>hbcsjt-app-spring-boot-starter-banner</artifactId>
+                <groupId>cn.com.mw</groupId>
+                <artifactId>mw-app-spring-boot-starter-banner</artifactId>
                 <version>${revision}</version>
             </dependency>
             <dependency>
-                <groupId>cn.com.hbscjt</groupId>
-                <artifactId>hbcsjt-app-common</artifactId>
+                <groupId>cn.com.mw</groupId>
+                <artifactId>mw-app-common</artifactId>
                 <version>${revision}</version>
             </dependency>
             <dependency>
-                <groupId>cn.com.hbscjt</groupId>
-                <artifactId>hbcsjt-app-spring-boot-starter-cloud</artifactId>
+                <groupId>cn.com.mw</groupId>
+                <artifactId>mw-app-spring-boot-starter-cloud</artifactId>
                 <version>${revision}</version>
             </dependency>
             <dependency>
-                <groupId>cn.com.hbscjt</groupId>
-                <artifactId>hbcsjt-app-spring-boot-starter-web</artifactId>
+                <groupId>cn.com.mw</groupId>
+                <artifactId>mw-app-spring-boot-starter-web</artifactId>
                 <version>${revision}</version>
             </dependency>
             <dependency>
-                <groupId>cn.com.hbscjt</groupId>
-                <artifactId>hbcsjt-app-spring-boot-starter-mybatis</artifactId>
+                <groupId>cn.com.mw</groupId>
+                <artifactId>mw-app-spring-boot-starter-mybatis</artifactId>
                 <version>${revision}</version>
             </dependency>
             <dependency>
-                <groupId>cn.com.hbscjt</groupId>
-                <artifactId>hbcsjt-app-spring-boot-starter-boot</artifactId>
+                <groupId>cn.com.mw</groupId>
+                <artifactId>mw-app-spring-boot-starter-boot</artifactId>
                 <version>${revision}</version>
             </dependency>
             <dependency>
-                <groupId>cn.com.hbscjt</groupId>
-                <artifactId>hbcsjt-app-spring-boot-starter-auth</artifactId>
+                <groupId>cn.com.mw</groupId>
+                <artifactId>mw-app-spring-boot-starter-auth</artifactId>
                 <version>${revision}</version>
             </dependency>
             <dependency>
-                <groupId>cn.com.hbscjt</groupId>
-                <artifactId>hbcsjt-app-spring-boot-starter-redis</artifactId>
+                <groupId>cn.com.mw</groupId>
+                <artifactId>mw-app-spring-boot-starter-redis</artifactId>
                 <version>${revision}</version>
             </dependency>
             <dependency>
-                <groupId>cn.com.hbscjt</groupId>
-                <artifactId>hbcsjt-app-spring-boot-starter-security</artifactId>
+                <groupId>cn.com.mw</groupId>
+                <artifactId>mw-app-spring-boot-starter-security</artifactId>
                 <version>${revision}</version>
             </dependency>
             <dependency>
-                <groupId>cn.com.hbscjt</groupId>
-                <artifactId>hbcsjt-app-spring-boot-starter-muticache</artifactId>
+                <groupId>cn.com.mw</groupId>
+                <artifactId>mw-app-spring-boot-starter-muticache</artifactId>
                 <version>${revision}</version>
             </dependency>
             <dependency>
-                <groupId>cn.com.hbscjt</groupId>
-                <artifactId>hbcsjt-app-spring-boot-starter-swagger</artifactId>
+                <groupId>cn.com.mw</groupId>
+                <artifactId>mw-app-spring-boot-starter-swagger</artifactId>
                 <version>${revision}</version>
             </dependency>
             <dependency>
-                <groupId>cn.com.hbscjt</groupId>
-                <artifactId>hbcsjt-app-spring-boot-starter-develop</artifactId>
+                <groupId>cn.com.mw</groupId>
+                <artifactId>mw-app-spring-boot-starter-develop</artifactId>
                 <version>${revision}</version>
             </dependency>
             <dependency>
-                <groupId>cn.com.hbscjt</groupId>
-                <artifactId>hbcsjt-app-spring-boot-starter-sms</artifactId>
+                <groupId>cn.com.mw</groupId>
+                <artifactId>mw-app-spring-boot-starter-sms</artifactId>
                 <version>${revision}</version>
             </dependency>
             <dependency>
-                <groupId>cn.com.hbscjt</groupId>
-                <artifactId>hbcsjt-app-spring-boot-starter-oss</artifactId>
+                <groupId>cn.com.mw</groupId>
+                <artifactId>mw-app-spring-boot-starter-oss</artifactId>
                 <version>${revision}</version>
             </dependency>
             <dependency>
-                <groupId>cn.com.hbscjt</groupId>
-                <artifactId>hbcsjt-app-spring-boot-starter-seata</artifactId>
+                <groupId>cn.com.mw</groupId>
+                <artifactId>mw-app-spring-boot-starter-seata</artifactId>
                 <version>${revision}</version>
             </dependency>
             <!--feign组件-->

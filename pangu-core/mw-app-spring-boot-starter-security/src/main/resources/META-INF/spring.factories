@@ -1,0 +1,7 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  cn.com.mw.app.framework.security.config.SecurityAutoConfiguration,\
+  cn.com.mw.app.framework.security.config.SecurityOneConfiguration,\
+  cn.com.mw.app.framework.security.config.SecurityConfigurerAdapter
+
+
+

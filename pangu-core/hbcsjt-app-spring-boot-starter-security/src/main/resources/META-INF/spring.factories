@@ -1,7 +1,0 @@
-org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-  cn.com.hbscjt.app.framework.security.config.SecurityAutoConfiguration,\
-  cn.com.hbscjt.app.framework.security.config.SecurityOneConfiguration,\
-  cn.com.hbscjt.app.framework.security.config.SecurityConfigurerAdapter
-
-
-

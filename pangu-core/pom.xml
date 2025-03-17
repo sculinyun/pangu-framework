@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
         <artifactId>pangu-framework</artifactId>
-        <groupId>cn.com.hbscjt</groupId>
+        <groupId>cn.com.mw</groupId>
         <version>${revision}</version>
     </parent>
 
@@ -25,21 +25,22 @@
     </description>
 
     <modules>
-        <module>hbcsjt-app-common</module>
-        <module>hbcsjt-app-spring-boot-starter-banner</module>
-        <module>hbcsjt-app-spring-boot-starter-cloud</module>
-        <module>hbcsjt-app-spring-boot-starter-web</module>
-        <module>hbcsjt-app-spring-boot-starter-boot</module>
-        <module>hbcsjt-app-spring-boot-starter-mybatis</module>
-        <module>hbcsjt-app-spring-boot-starter-auth</module>
-        <module>hbcsjt-app-spring-boot-starter-redis</module>
-        <module>hbcsjt-app-spring-boot-starter-security</module>
-        <module>hbcsjt-app-spring-boot-starter-muticache</module>
-        <module>hbcsjt-app-spring-boot-starter-swagger</module>
-        <module>hbcsjt-app-spring-boot-starter-develop</module>
-        <module>hbcsjt-app-spring-boot-starter-sms</module>
-        <module>hbcsjt-app-spring-boot-starter-oss</module>
-        <module>hbcsjt-app-spring-boot-starter-seata</module>
+        <module>mw-app-common</module>
+        <module>mw-app-spring-boot-starter-banner</module>
+        <module>mw-app-spring-boot-starter-cloud</module>
+        <module>mw-app-spring-boot-starter-web</module>
+        <module>mw-app-spring-boot-starter-boot</module>
+        <module>mw-app-spring-boot-starter-mybatis</module>
+        <module>mw-app-spring-boot-starter-auth</module>
+        <module>mw-app-spring-boot-starter-redis</module>
+        <module>mw-app-spring-boot-starter-security</module>
+        <module>mw-app-spring-boot-starter-muticache</module>
+        <module>mw-app-spring-boot-starter-swagger</module>
+        <module>mw-app-spring-boot-starter-develop</module>
+        <module>mw-app-spring-boot-starter-sms</module>
+        <module>mw-app-spring-boot-starter-oss</module>
+        <module>mw-app-spring-boot-starter-seata</module>
+        <module>mw-app-spring-boot-starter-check</module>
     </modules>
 
     <build>
