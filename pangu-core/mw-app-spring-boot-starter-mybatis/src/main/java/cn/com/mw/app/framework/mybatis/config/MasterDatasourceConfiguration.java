@@ -17,7 +17,7 @@ import org.springframework.context.annotation.Configuration;
  */
 @Configuration
 @Slf4j
-@MapperScan(value = "cn.com.hbscjt.**.dal.mysql.**", annotationClass = Mapper.class)
+@MapperScan(value = "cn.com.mw.**.dal.mysql.**", annotationClass = Mapper.class)
 @EnableConfigurationProperties(DatasourceProperties.class)
 public class MasterDatasourceConfiguration {
 
